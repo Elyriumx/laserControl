@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package laserControl;
+
+service LaserControlService {
+  rpc GetLaserStatus(GetLaserStatusRequest) returns (GetLaserStatusResponse) {}
+  rpc SetBiasVoltage(SetBiasVoltageRequest) returns (SetBiasVoltageResponse) {}
+  rpc EnableLaser(EnableLaserRequest) returns (EnableLaserResponse) {}
+  rpc DisableLaser(DisableLaserRequest) returns (DisableLaserResponse) {}
+}
+
+message GetLaserStatusRequest {}
+
+message GetLaserStatusResponse {
+  enum Status {
+    OFF = 0;
+    ON = 1;
+  }
+  Status status = 1;
+}
+
+message SetBiasVoltageRequest {
+  float voltage = 1;
+}
+
+message SetBiasVoltageResponse {
+  bool success = 1;
+}
+
+message EnableLaserRequest {}
+
+message EnableLaserResponse {
+  bool success = 1;
+}
+
+message DisableLaserRequest {}
+
+message DisableLaserResponse {}
+
+
+
+
+
+
+
+
